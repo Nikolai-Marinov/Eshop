@@ -1,0 +1,166 @@
+.product-card img {
+
+    height:250px;
+    object-fit:contain;
+
+}
+
+
+.card {
+
+    height:100%;
+
+}
+
+
+.card-title {
+
+    min-height:50px;
+
+}
+
+
+.price {
+
+    font-size:22px;
+    font-weight:bold;
+    color:#198754;
+
+}
+
+.toast{
+
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+    animation:slideDown .5s;
+
+}
+
+.toast-body{
+
+    font-weight:bold;
+    letter-spacing:.5px;
+
+}
+
+@keyframes slideDown{
+
+    from{
+
+        transform:translateY(-30px);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateY(0);
+        opacity:1;
+
+    }
+
+}
+
+.cart-toast{
+
+    background:linear-gradient(135deg,#28a745,#20c997);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+.cart-icon{
+
+    font-size:28px;
+
+    margin-right:10px;
+
+}
+
+.toast{
+
+    animation:slideIn .4s ease;
+
+}
+
+@keyframes slideIn{
+
+    from{
+
+        opacity:0;
+        transform:translateX(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+.logout-toast{
+
+    background:linear-gradient(135deg,#dc3545,#fd7e14);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+.logout-icon{
+
+    font-size:28px;
+
+    margin-right:10px;
+
+}
+
+.login-toast{
+
+    background:linear-gradient(135deg,#ffc107,#fd7e14);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+
+.login-icon{
+
+    font-size:28px;
+
+    margin-right:10px;
+
+}

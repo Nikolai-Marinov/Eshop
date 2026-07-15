@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Cart</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="container mt-5">
+
+
+<div class="d-flex justify-content-between align-items-center">
+
+<h1>
+Shopping Cart
+</h1>
+
+
+<a href="shop.html" class="btn btn-primary">
+⬅ Back to Shop
+</a>
+
+
+</div>
+
+
+<table class="table">
+
+<thead>
+
+<tr>
+
+<th>Product</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Total</th>
+<th></th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="cart">
+
+</tbody>
+
+
+</table>
+
+
+<h3 id="total"></h3>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+
+
+let user = JSON.parse(localStorage.getItem("user"));
+
+if (!user) {
+    window.location = "loginPage.html";
+}
+
+let cartKey = "cart_" + user.username;
+
+let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+
+let html="";
+let total=0;
+
+
+
+cart.forEach((item,index)=>{
+
+
+let sum=item.price*item.quantity;
+
+total+=sum;
+
+
+html+=`
+
+<tr>
+
+<td>
+
+<img src="${item.image}" width="60">
+
+${item.title}
+
+</td>
+
+
+<td>
+$${item.price}
+</td>
+
+
+<td>
+${item.quantity}
+</td>
+
+
+<td>
+$${sum.toFixed(2)}
+</td>
+
+
+<td>
+
+<button 
+class="btn btn-danger remove"
+data-id="${item.id}">
+
+Remove
+
+</button>
+
+</td>
+
+
+</tr>
+
+
+`;
+
+
+
+});
+
+
+
+$("#cart").html(html);
+
+$("#total").html(
+"Total: $" + total.toFixed(2)
+);
+
+
+
+$(".remove").click(function(){
+
+
+let id=$(this).data("id");
+
+
+cart=cart.filter(x=>x.id!=id);
+
+
+localStorage.setItem(cartKey, JSON.stringify(cart));
+
+
+location.reload();
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
